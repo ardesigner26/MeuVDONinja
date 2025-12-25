@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  Copyright (c) 2024 Steve Seguin. All Rights Reserved.
  *
  *  Use of this source code is governed by the APGLv3 open-source license
@@ -1439,7 +1439,7 @@ async function main() {
 			getById("previewWebcam").classList.add("miconly");
 			//if (session.consent){
 			//	setTimeout(function(){
-			//		warnUser("⚠ Privacy warning: The director of this room can remotely switch your camera or microphone without permission.", 8000);
+			//		warnUser("âš  Privacy warning: The director of this room can remotely switch your camera or microphone without permission.", 8000);
 			//	}, 1500);
 			//}
 		}
@@ -1880,7 +1880,7 @@ async function main() {
 					warnUser("Please update your device.\n\nOlder versions of Safari may crash after recording for a few minutes.");
 				} else if (iOS || iPad) {
 					// iOS-specific warning about split recordings
-					warnUser("iOS Recording Notice:\n\n• Recordings will be split into 5-minute segments to prevent crashes\n• Files will download as MP4 format\n• Each segment will download separately\n• Use video editing software to join segments if needed\n\nGoogle Drive uploads (if enabled) will work normally.");
+					warnUser("iOS Recording Notice:\n\nâ€¢ Recordings will be split into 5-minute segments to prevent crashes\nâ€¢ Files will download as MP4 format\nâ€¢ Each segment will download separately\nâ€¢ Use video editing software to join segments if needed\n\nGoogle Drive uploads (if enabled) will work normally.");
 				} else {
 					warnUser("Local media recordings are an experimental feature on Apple devices.\n\nPlease at least test it out a few times first.");
 				}
@@ -2243,7 +2243,7 @@ async function main() {
 				base64Css = atob(base64Css); // window.btoa(encodeURIComponent("#mainmenu{background-color: pink;}" ));
 			} catch (e) {}
 			try {
-				base64Css = decodeURIComponent(base64Css); // window.btoa(encodeURIComponent("#mainmenu{background-color: pink; ❤" ));
+				base64Css = decodeURIComponent(base64Css); // window.btoa(encodeURIComponent("#mainmenu{background-color: pink; â¤" ));
 			} catch (e) {}
 			
 			try {
@@ -2428,7 +2428,7 @@ async function main() {
 				if (["invite.cam","invitecamera.com"].includes(getParentHostname())){
 					console.error("For security and privacy purposes, Javascript injection using Invite Cam must be consented to.");
 					if (!session.cleanOutput){
-						allow = await confirmAlt("This link wishes to inject third-party Javascript ⚠️\n\nIf you trust the link, click OK. Otherwise, click Cancel.", true);
+						allow = await confirmAlt("This link wishes to inject third-party Javascript âš ï¸\n\nIf you trust the link, click OK. Otherwise, click Cancel.", true);
 					}
 				} else if ((window.location.hostname === jsDomain) || window.location.hostname.endsWith("."+jsDomain) || (window !== window.top) || session.studioSoftware) {
 					// same domains, iframes, or OBS can run javascript.
@@ -2438,7 +2438,7 @@ async function main() {
 					}
 				} else if (!session.cleanOutput){
 					// to allow flexibility, we will allow it if the user consents
-					allow = await confirmAlt("This link wishes to inject third-party Javascript ⚠️\n\nIf you trust the link, click OK. Otherwise, click cancel.", true);
+					allow = await confirmAlt("This link wishes to inject third-party Javascript âš ï¸\n\nIf you trust the link, click OK. Otherwise, click cancel.", true);
 				}
 			} catch(e){
 				allow = true;
@@ -2473,7 +2473,7 @@ async function main() {
 				if (["invite.cam","invitecamera.com"].includes(getParentHostname())){
 					console.error("For security and privacy purposes, Javascript injection using Invite Cam must be consented to.");
 					if (!session.cleanOutput){
-						allow = await confirmAlt("This link wishes to inject third-party Javascript ⚠️\n\nIf you trust the link, click OK. Otherwise, click Cancel.", true);
+						allow = await confirmAlt("This link wishes to inject third-party Javascript âš ï¸\n\nIf you trust the link, click OK. Otherwise, click Cancel.", true);
 					}
 				} else if ((window !== window.top) || session.studioSoftware) {
 					// iframes or OBS can run javascript.
@@ -2481,7 +2481,7 @@ async function main() {
 					console.warn("Third-party Javascript has been injected into the code. Security cannot be ensured.");
 				}  else if (!session.cleanOutput){
 					// to allow flexibility, we will allow it if the user consents
-					allow = await confirmAlt("This link wishes to inject third-party Javascript ⚠️\n\nIf you trust the link, click OK. Otherwise, click Cancel.", true);
+					allow = await confirmAlt("This link wishes to inject third-party Javascript âš ï¸\n\nIf you trust the link, click OK. Otherwise, click Cancel.", true);
 				}
 			} catch(e){
 				warnlog(e);
@@ -3743,7 +3743,7 @@ async function main() {
 		}
 	} catch (e) {
 		errorlog(e);
-		console.warn("⚠️ If you are seeing this error, it's likely a third-party browser extension is breaking the site\n\nTry a different browser, incognito mode, or disable the problematic extension.");
+		console.warn("âš ï¸ If you are seeing this error, it's likely a third-party browser extension is breaking the site\n\nTry a different browser, incognito mode, or disable the problematic extension.");
 	}
 
 	if (urlParams.has("videodevice") || urlParams.has("vdevice") || urlParams.has("vd") || urlParams.has("device") || urlParams.has("d") || urlParams.has("vdo")) {
@@ -3899,7 +3899,7 @@ async function main() {
 		}
 		if (session.consent) {
 			setTimeout(function () {
-				warnUser("⚠ Privacy warning: The director of this room can remotely switch your camera or microphone without permission.", 8000);
+				warnUser("âš  Privacy warning: The director of this room can remotely switch your camera or microphone without permission.", 8000);
 			}, 1500);
 		}
 	}
@@ -5885,7 +5885,7 @@ async function main() {
 	}
 
 	if (urlParams.has("queue4") || urlParams.has("holdwithvideo")) {
-		// &holdwithvideo (alias: &queue4) - Like &hold but allows Guest→Director media.
+		// &holdwithvideo (alias: &queue4) - Like &hold but allows Guestâ†’Director media.
 		//
 		// - Guest cannot see director or other guests (still isolated)
 		// - Director CAN see guest's video/audio (for preview/screening)
@@ -6200,7 +6200,7 @@ async function main() {
 
 	if (session.effect && !session.cleanOutput) {
 		if (ChromiumVersion && ChromiumVersion === 122) {
-			warnUser("⚠️ Notice: A recent update to Chrome/Edge can cause the browser to crash, especially when using &effects or &zoom.\n\nBrowser updates are rolling out to fix the issue, however avoiding the use of digital video effects for now might be prudent", 30000);
+			warnUser("âš ï¸ Notice: A recent update to Chrome/Edge can cause the browser to crash, especially when using &effects or &zoom.\n\nBrowser updates are rolling out to fix the issue, however avoiding the use of digital video effects for now might be prudent", 30000);
 		}
 	}
 	
@@ -7102,7 +7102,7 @@ async function main() {
 			if (["127.0.0.1", "localhost"].includes(window.location.hostname)){
 				// these are allowed I believe. I do change the salt however to the default one though.
 			} else if (window.location.host.split(".")[0] !== "insecure") {
-				console.warn("⚠️ SSL (https) is not enabled. This site will not fully work without it!<br /><br /><a href='https://" + window.location.host + window.location.pathname + window.location.search + "'>Try accessing the site from here instead.</a>", false, false);
+				console.warn("âš ï¸ SSL (https) is not enabled. This site will not fully work without it!<br /><br /><a href='https://" + window.location.host + window.location.pathname + window.location.search + "'>Try accessing the site from here instead.</a>", false, false);
 			}
 			//}
 		} catch (e) {}
@@ -9077,3 +9077,265 @@ async function main() {
 		script.src = "./thirdparty/polyfill.min.js"; // dynamically load this only if its needed. Keeps loading time down.
 	}, 100);
 }
+
+// ===================================================================
+// CONFIGURAÇÕES CUSTOMIZADAS INTEGRADAS AO SISTEMA NATIVO
+// Substitui as opções de resolução padrão
+// ===================================================================
+
+// Sobrescrever função de configuração de qualidade
+(function() {
+    'use strict';
+    
+    // Aguardar DOM carregar
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            integrateCustomResolutions();
+        }, 1000);
+    });
+    
+    function integrateCustomResolutions() {
+        console.log('[CustomVDO] 🎯 Integrando configurações no sistema nativo...');
+        
+        // Encontrar container das opções de resolução
+        const resolutionContainer = findResolutionContainer();
+        if (!resolutionContainer) {
+            console.warn('[CustomVDO] ⚠️ Container de resolução não encontrado, tentando novamente...');
+            setTimeout(integrateCustomResolutions, 2000);
+            return;
+        }
+        
+        // Substituir opções nativas
+        replaceNativeOptions(resolutionContainer);
+        
+        // Adicionar controles de bitrate e latência
+        addAdvancedControls(resolutionContainer);
+        
+        console.log('[CustomVDO] ✅ Configurações integradas com sucesso!');
+    }
+    
+    function findResolutionContainer() {
+        // Procurar por diferentes seletores possíveis
+        const selectors = [
+            '[data-translate="quality"]',
+            '.quality-container',
+            '.video-quality',
+            '.resolution-options',
+            'div:contains("Max Resolution")',
+            'div:contains("Balanced")',
+            'div:contains("Smooth")'
+        ];
+        
+        for (let selector of selectors) {
+            const element = document.querySelector(selector);
+            if (element) return element.closest('div');
+        }
+        
+        // Busca mais ampla por texto
+        const allDivs = document.querySelectorAll('div');
+        for (let div of allDivs) {
+            const text = div.textContent || '';
+            if (text.includes('Max Resolution') || text.includes('Balanced') || text.includes('Smooth')) {
+                return div.closest('div');
+            }
+        }
+        
+        return null;
+    }
+    
+    function replaceNativeOptions(container) {
+        // Criar novas opções customizadas
+        const customOptionsHTML = 
+            <div class="custom-resolution-options" style="margin: 10px 0;">
+                <div style="color: white; font-weight: bold; margin-bottom: 8px;">
+                    📺 Qualidade de Vídeo Customizada
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <label style="display: flex; align-items: center; color: white; cursor: pointer;">
+                        <input type="radio" name="customResolution" value="720p30" checked style="margin-right: 8px;">
+                        <span>720p @ 30fps (Padrão)</span>
+                    </label>
+                    
+                    <label style="display: flex; align-items: center; color: white; cursor: pointer;">
+                        <input type="radio" name="customResolution" value="1080p30" style="margin-right: 8px;">
+                        <span>1080p @ 30fps (Qualidade)</span>
+                    </label>
+                    
+                    <label style="display: flex; align-items: center; color: white; cursor: pointer;">
+                        <input type="radio" name="customResolution" value="1080p60" style="margin-right: 8px;">
+                        <span>🚀 1080p @ 60fps (Suave)</span>
+                    </label>
+                    
+                    <label style="display: flex; align-items: center; color: white; cursor: pointer;">
+                        <input type="radio" name="customResolution" value="4k30" style="margin-right: 8px;">
+                        <span>⭐ 4K @ 30fps (Ultra HD)</span>
+                    </label>
+                </div>
+            </div>
+        ;
+        
+        // Substituir conteúdo existente
+        const existingOptions = container.querySelector('.quality-options, .resolution-options');
+        if (existingOptions) {
+            existingOptions.innerHTML = customOptionsHTML;
+        } else {
+            container.innerHTML = customOptionsHTML + container.innerHTML;
+        }
+        
+        // Adicionar event listeners
+        const radioButtons = container.querySelectorAll('input[name="customResolution"]');
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.checked) {
+                    applyCustomResolution(this.value);
+                }
+            });
+        });
+    }
+    
+    function addAdvancedControls(container) {
+        const advancedControlsHTML = 
+            <div class="advanced-controls" style="margin-top: 15px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                <div style="color: white; font-weight: bold; margin-bottom: 10px;">
+                    ⚙️ Controles Avançados
+                </div>
+                
+                <div style="margin-bottom: 10px;">
+                    <label style="color: white; display: block; margin-bottom: 5px;">
+                        🚀 Bitrate: <span id="bitrateValue">2500 kbps</span>
+                    </label>
+                    <input type="range" id="bitrateSlider" min="500" max="15000" value="2500" 
+                           style="width: 100%;" onchange="updateBitrate(this.value)">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; color: #ccc;">
+                        <span>500 kbps</span>
+                        <span>15 Mbps</span>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 10px;">
+                    <label style="color: white; display: block; margin-bottom: 5px;">
+                        ⚡ Latência: <span id="latencyValue">50 ms</span>
+                    </label>
+                    <input type="range" id="latencySlider" min="0" max="1000" value="50" 
+                           style="width: 100%;" onchange="updateLatency(this.value)">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; color: #ccc;">
+                        <span>0 ms</span>
+                        <span>1000 ms</span>
+                    </div>
+                </div>
+                
+                <button onclick="applyAllSettings()" 
+                        style="width: 100%; padding: 10px; background: linear-gradient(45deg, #00ff88, #00cc6a); 
+                               color: black; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                    ✅ Aplicar Configurações
+                </button>
+            </div>
+        ;
+        
+        container.insertAdjacentHTML('afterend', advancedControlsHTML);
+    }
+    
+    window.applyCustomResolution = function(resolution) {
+        console.log('[CustomVDO] 🎯 Aplicando resolução:', resolution);
+        
+        let width, height, frameRate;
+        switch(resolution) {
+            case '720p30':
+                width = 1280; height = 720; frameRate = 30;
+                break;
+            case '1080p30':
+                width = 1920; height = 1080; frameRate = 30;
+                break;
+            case '1080p60':
+                width = 1920; height = 1080; frameRate = 60;
+                break;
+            case '4k30':
+                width = 3840; height = 2160; frameRate = 30;
+                break;
+        }
+        
+        // Aplicar configurações no WebRTC
+        if (typeof session !== 'undefined' && session) {
+            try {
+                // Modificar constraints globais
+                window.customConstraints = {
+                    video: {
+                        width: { ideal: width, max: width },
+                        height: { ideal: height, max: height },
+                        frameRate: { ideal: frameRate, max: frameRate }
+                    }
+                };
+                
+                console.log('[CustomVDO] ✅ Configurações aplicadas:', window.customConstraints);
+                
+                // Atualizar display de configurações atuais
+                updateCurrentSettings(width, height, frameRate);
+                
+            } catch (error) {
+                console.error('[CustomVDO] ❌ Erro ao aplicar configuração:', error);
+            }
+        }
+    };
+    
+    window.updateBitrate = function(value) {
+        document.getElementById('bitrateValue').textContent = 
+            value >= 1000 ? (value / 1000).toFixed(1) + ' Mbps' : value + ' kbps';
+        window.customBitrate = parseInt(value);
+    };
+    
+    window.updateLatency = function(value) {
+        document.getElementById('latencyValue').textContent = value + ' ms';
+        window.customLatency = parseInt(value);
+    };
+    
+    window.applyAllSettings = function() {
+        const selectedResolution = document.querySelector('input[name="customResolution"]:checked');
+        if (selectedResolution) {
+            applyCustomResolution(selectedResolution.value);
+        }
+        
+        // Aplicar bitrate e latência
+        if (window.customBitrate || window.customLatency) {
+            console.log('[CustomVDO] 🔧 Aplicando configurações avançadas:', {
+                bitrate: window.customBitrate,
+                latency: window.customLatency
+            });
+        }
+        
+        // Feedback visual
+        const button = event.target;
+        const originalText = button.textContent;
+        button.textContent = '✅ Aplicado!';
+        button.style.background = '#4CAF50';
+        
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.style.background = 'linear-gradient(45deg, #00ff88, #00cc6a)';
+        }, 2000);
+    };
+    
+    function updateCurrentSettings(width, height, frameRate) {
+        // Procurar elemento que mostra configurações atuais
+        const currentSettingsElements = document.querySelectorAll('*');
+        for (let element of currentSettingsElements) {
+            const text = element.textContent || '';
+            if (text.includes('Current Video Settings') || text.includes('x') && text.includes('@')) {
+                element.textContent = Current Video Settings: x@fps;
+                break;
+            }
+        }
+    }
+    
+    // Hook getUserMedia para aplicar constraints customizadas
+    const originalGetUserMedia = navigator.mediaDevices.getUserMedia;
+    navigator.mediaDevices.getUserMedia = function(constraints) {
+        if (window.customConstraints && constraints.video) {
+            Object.assign(constraints.video, window.customConstraints.video);
+            console.log('[CustomVDO] 🎥 Constraints customizadas aplicadas:', constraints);
+        }
+        return originalGetUserMedia.call(this, constraints);
+    };
+    
+})();
+
