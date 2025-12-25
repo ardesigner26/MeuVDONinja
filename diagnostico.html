@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - VDO.Ninja</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .status { margin: 10px 0; }
+        .ok { color: #0f0; }
+        .error { color: #f00; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Diagnóstico VDO.Ninja</h1>
+    
+    <div class="status">
+        <strong>Status da Página:</strong> <span id="pageStatus">Carregando...</span>
+    </div>
+    
+    <div class="status">
+        <strong>JavaScript:</strong> <span id="jsStatus">Verificando...</span>
+    </div>
+    
+    <div class="status">
+        <strong>Arquivos:</strong> <span id="filesStatus">Verificando...</span>
+    </div>
+    
+    <div class="status">
+        <strong>Console:</strong> <span id="consoleStatus">Verificando...</span>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <h3>📋 Instruções:</h3>
+        <p>1. Pressione F12 para abrir o Console</p>
+        <p>2. Procure por erros em vermelho</p>
+        <p>3. Copie qualquer erro e me envie</p>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <button onclick="testOriginalSite()" style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            🧪 Testar Site Original
+        </button>
+    </div>
+    
+    <script>
+        console.log('🔍 Iniciando diagnóstico...');
+        
+        document.getElementById('pageStatus').textContent = 'OK - Página carregou';
+        document.getElementById('pageStatus').className = 'ok';
+        
+        document.getElementById('jsStatus').textContent = 'OK - JavaScript funcionando';
+        document.getElementById('jsStatus').className = 'ok';
+        
+        // Verificar se arquivos existem
+        fetch('main.js')
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('filesStatus').textContent = 'OK - main.js encontrado';
+                    document.getElementById('filesStatus').className = 'ok';
+                    
+                    // Tentar carregar main.js
+                    return fetch('main.js').then(r => r.text());
+                } else {
+                    throw new Error('main.js não encontrado');
+                }
+            })
+            .then(mainJsContent => {
+                console.log('✅ main.js carregado, tamanho:', mainJsContent.length);
+                
+                // Verificar se main.js tem conteúdo válido
+                if (mainJsContent.includes('async function main()')) {
+                    console.log('✅ Função main() encontrada');
+                } else {
+                    console.error('❌ Função main() não encontrada');
+                }
+            })
+            .catch(error => {
+                document.getElementById('filesStatus').textContent = 'ERRO - ' + error.message;
+                document.getElementById('filesStatus').className = 'error';
+                console.error('❌ Erro:', error);
+            });
+        
+        // Verificar console
+        let originalConsoleError = console.error;
+        let errors = [];
+        console.error = function(...args) {
+            errors.push(args.join(' '));
+            originalConsoleError.apply(console, args);
+            
+            document.getElementById('consoleStatus').textContent = 'ERROS ENCONTRADOS: ' + errors.length;
+            document.getElementById('consoleStatus').className = 'error';
+        };
+        
+        setTimeout(() => {
+            if (errors.length === 0) {
+                document.getElementById('consoleStatus').textContent = 'OK - Sem erros';
+                document.getElementById('consoleStatus').className = 'ok';
+            }
+        }, 2000);
+        
+        function testOriginalSite() {
+            window.open('https://vdo.ninja', '_blank');
+        }
+        
+        console.log('🎯 Diagnóstico concluído. Verifique os status acima.');
+    </script>
+</body>
+</html>
